@@ -1,6 +1,7 @@
 import "./App.css";
-import TodoForm from "./components/TodoForm";
-import TodoList from "./components/TodoList";
+import TodoFooter from "./components/TodoFooter/TodoFooter";
+import TodoForm from "./components/TodoForm/TodoForm";
+import TodoList from "./components/TodoList/TodoList";
 import { useTodos } from "./services/useTodos";
 
 function App() {
@@ -21,15 +22,14 @@ function App() {
         {filteredList.length ? (
           <TodoList list={filteredList} toggleCompleted={toggleCompleted} />
         ) : (
-          <p>List is empty</p>
+          <p className="empty">List is empty</p>
         )}
-        <button onClick={() => setFilter("all")}>All</button>
-        <button onClick={() => setFilter("active")}>Active</button>
-        <button onClick={() => setFilter("completed")}>Completed</button>
-        <button onClick={deleteCompleted}>Clear completed</button>
-        <p>
-          {itemsLeft} {itemsLeft === 1 ? "item" : "items"} left
-        </p>
+        <TodoFooter
+          filter={filter}
+          setFilter={setFilter}
+          count={itemsLeft}
+          deleteCompleted={deleteCompleted}
+        />
       </div>
     </div>
   );
