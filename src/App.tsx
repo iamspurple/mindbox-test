@@ -1,35 +1,38 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./App.css";
+import TodoForm from "./components/TodoForm";
+import TodoList from "./components/TodoList";
+import { useTodos } from "./services/useTodos";
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  const {
+    filteredList,
+    filter,
+    setFilter,
+    addTodo,
+    deleteCompleted,
+    toggleCompleted,
+    itemsLeft,
+  } = useTodos();
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
+    <div>
+      <h1 className="title">todos</h1>
+      <div className="container">
+        <TodoForm addTodo={addTodo} />
+        {filteredList.length ? (
+          <TodoList list={filteredList} toggleCompleted={toggleCompleted} />
+        ) : (
+          <p>List is empty</p>
+        )}
+        <button onClick={() => setFilter("all")}>All</button>
+        <button onClick={() => setFilter("active")}>Active</button>
+        <button onClick={() => setFilter("completed")}>Completed</button>
+        <button onClick={deleteCompleted}>Clear completed</button>
         <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
+          {itemsLeft} {itemsLeft === 1 ? "item" : "items"} left
         </p>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </div>
+  );
 }
 
-export default App
+export default App;
