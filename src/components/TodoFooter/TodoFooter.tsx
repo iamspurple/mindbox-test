@@ -18,7 +18,11 @@ const TodoFooter = (props: TodoFooterProps) => {
       </span>
       <ul className={styles.filters}>
         {filters.map((f) => (
-          <li key={f} className={filter === f ? styles.active : ""}>
+          <li
+            key={f}
+            className={filter === f ? styles.active : ""}
+            data-active={filter === f}
+          >
             <button onClick={() => setFilter(f)}>{f}</button>
           </li>
         ))}
