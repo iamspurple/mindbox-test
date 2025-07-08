@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`TodoList matches snapshot 1`] = `
+<DocumentFragment>
+  <ul
+    class="list"
+  >
+    <li
+      class="item"
+    >
+      <input
+        class="checkbox"
+        type="checkbox"
+      />
+      <span
+        class=""
+      >
+        First todo
+      </span>
+    </li>
+    <li
+      class="item"
+    >
+      <input
+        checked=""
+        class="checkbox"
+        type="checkbox"
+      />
+      <span
+        class="completed"
+      >
+        Second todo
+      </span>
+    </li>
+  </ul>
+</DocumentFragment>
+`;
