@@ -9,7 +9,8 @@
   display: inline-block;
   width: 1rem;
   aspect-ratio: 1;
-  background: url("./icons/arrow-down.svg") center/contain no-repeat;
+  background: url("../../../public/icons/arrow-down.svg") center/contain
+    no-repeat;
   position: absolute;
   top: 0.8rem;
   left: 10px;
