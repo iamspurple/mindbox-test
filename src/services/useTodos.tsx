@@ -58,6 +58,7 @@ export const useTodos = () => {
   );
 
   return {
+    todoList,
     filteredList,
     filter,
     setFilter,
