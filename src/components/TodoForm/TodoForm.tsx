@@ -5,7 +5,7 @@ const TodoForm = ({ addTodo }: { addTodo: (title: string) => void }) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (inputRef.current) {
+    if (inputRef.current && inputRef.current.value.trim() !== "") {
       addTodo(inputRef.current.value);
       inputRef.current.value = "";
     }
